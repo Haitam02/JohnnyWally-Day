@@ -15,6 +15,15 @@ The differences between the two codes are the initial position of the servo moto
 Add all the library needed
 
 ### Pin used
-
-
+#### List of the pin for the PAMI 2 & 3
+| Sensors   | Side  |Pin   | Pin   |
+|-----------|-------|------|-------|
+|Ultrasound | Left  |Trg-12|Echo-13|
+|Ultrasound | Right |Trg-8 |Echo-9 |
+|Infrared   | Left  |   5  |   /   |
+|Infrared   | Right |   4  |   /   |
+|Rope| /|  11|/|
+|Servomotor|/|6|/|
+|Encoder|Left|2 |/|
+|Encoder| Right| 3|/|
 
