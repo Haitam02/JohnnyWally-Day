@@ -32,3 +32,20 @@ To use the code, you will need all the libraries listed below:
 |Encoder|Left|2 |/|
 |Encoder| Right| 3|/|
 
+## Superstar's Code
+
+### Requirements
+To use the code, you will need all the libraries listed below:
+
+### Pin used
+#### List of the pin for the Superstar
+| Sensors   | Side  |Pin   | Pin   |
+|-----------|-------|------|-------|
+|Ultrasound | Left  |Trg-11|Echo-12|
+|Ultrasound | Right |Trg-9 |Echo-10 |
+|Infrared   | Left  |   8  |   /   |
+|Infrared   | Right |   9  |   /   |
+|Rope| /|  4|/|
+|Servomotor|/|6|/|
+|Encoder|Left|2 |/|
+|Encoder| Right| 3|/|
