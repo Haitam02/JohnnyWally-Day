@@ -45,10 +45,13 @@ After performing this three times, the banner is fully deployed, and the Big Rob
 For a better understanding of the wiring and design, it is recommended to refer to the visual schematic:
 
 #### Wiring Schematic
+![Wiring shematic](Images\Wiring_schematic.png)
 
 #### Board Design Schematic (Back of the Board)
+![Back board](Images\Back_board.png)
 
 #### Board Design Photo (Front of the Board)
+![Front board](Images\Front_Board.jpg)
 
 ### *Dependencies and Code Explanation*
 
