@@ -11,8 +11,13 @@ The code start (state START) when the rope is open (state high) and when the del
 
 The differences between the two codes are the initial position of the servo motor. The PAMI number 2 has its servo initialized with ```const int positionInitiale = -15;```. This is due to its placement in the starting zone, placing the servomotor like this allow to not disturb the superstar. The speed and life-time delay are also different depending on the PAMI. These are parameters that we used to adjust the position of the PAMIs into the final area.
 
-### Requirement
-Add all the library needed
+### Requirements
+To use the code, you will need all the libraries listed below:
+- Wire.h
+- Adafruit_MotorShield.h           
+- SoftwareSerial.h 
+- Servo.h 
+- NewPing.h 
 
 ### Pin used
 #### List of the pin for the PAMI 2 & 3
