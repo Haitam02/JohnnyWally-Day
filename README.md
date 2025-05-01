@@ -45,13 +45,14 @@ After performing this three times, the banner is fully deployed, and the Big Rob
 For a better understanding of the wiring and design, it is recommended to refer to the visual schematic:
 
 #### Wiring Schematic
-![Wiring shematic](Images\Wiring_schematic.png)
+<img src="Big_Robot's_Code-Banner_Deployment/Images/Wiring_schematic.png" alt="Wiring schematic" width="600"/>
 
 #### Board Design Schematic (Back of the Board)
-![Back board](Images\Back_board.png)
+<img src="Big_Robot's_Code-Banner_Deployment/Images/Back_board.png" alt="Back board" width="400"/>
 
 #### Board Design Photo (Front of the Board)
-![Front board](Images\Front_Board.jpg)
+<img src="Big_Robot's_Code-Banner_Deployment/Images/Front_Board.jpg" alt="Front board" width="400"/>
+
 
 ### *Dependencies and Code Explanation*
 
