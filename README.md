@@ -53,7 +53,6 @@ For a better understanding of the wiring and design, it is recommended to refer 
 #### Board Design Photo (Front of the Board)
 <img src="Big_Robot's_Code-Banner_Deployment/Images/Front_Board.jpg" alt="Front board" width="400"/>
 
-
 ### *Dependencies and Code Explanation*
 
 For the dependencies, the following libraries are required:
@@ -63,11 +62,11 @@ For the dependencies, the following libraries are required:
 
 Regarding the code organization, the project has been structured into three modular files for better maintainability and clarity:
 
-servo_controller.h - Contains all constant definitions, pin declarations, and function prototypes
+- servo_controller.h - Contains all constant definitions, pin declarations, and function prototypes
 
-servo_controller.cpp - Implements all servo control logic and sequence functions
+- servo_controller.cpp - Implements all servo control logic and sequence functions
 
-main.ino - Handles the primary program flow and signal processing
+- main.ino - Handles the primary program flow and signal processing
 
 The code is well-commented to explain the function of each part in detail, but here's an overall summary for better understanding.
 
