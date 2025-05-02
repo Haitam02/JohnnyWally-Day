@@ -113,6 +113,7 @@ For the dependencies, the following libraries are required:
 
 - Adafruit PWM Servo Driver Library
 - Wire Library (included with Arduino)
+- ArduinoLog.h
 
 Regarding the code organization, the project has been structured into three modular files for better maintainability and clarity:
 

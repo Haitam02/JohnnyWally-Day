@@ -1,4 +1,5 @@
 #include "servo_controller.h"
+#include <ArduinoLog.h>
 
 // Signal processing variables
 unsigned long lastSignalTime = 0;    // Last valid signal reception time
@@ -7,8 +8,7 @@ const unsigned long resetDelay = 5000; // 5 second reset delay after sequence
 bool lastSignal = LOW;    // Previous signal state (for edge detection)
 
 void setup() {
-  // Start serial communication for debugging
-  Serial.begin(9600);
+  Log.begin(LOG_LEVEL_VERBOSE, &Serial);
   
   // Initialize servo controller
   setupServoController();
@@ -26,8 +26,7 @@ void loop() {
   if (signal == HIGH && lastSignal == LOW) {
     lastSignalTime = millis(); // Update last signal time
     currentState++; // Advance to next state
-    Serial.print("Signal received. Transitioning to state ");
-    Serial.println(currentState);
+    Log.notice("Signal received. Transitioning to state %d\n", currentState);
 
     delay(1000); // Small debounce delay
 
