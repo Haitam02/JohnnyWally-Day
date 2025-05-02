@@ -1,50 +1,21 @@
-#include <Wire.h>
-#include <Adafruit_PWMServoDriver.h>
+#include "servo_controller.h"
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
-// Servo channel definitions (PWM controller channels)
-// Note: Channels are numbered to match physical board numbering (1-16)
-// but use 0-15 addressing for the PWM controller
-#define SERVO1 0   // Physical servo 1
-#define SERVO2 1   // Physical servo 2
-#define SERVO3 2   // Physical servo 3
-#define SERVO4 3   // Physical servo 4
-#define SERVO5 4   // Physical servo 5
-#define SERVO6 5   // Physical servo 6
-#define SERVO9 8   // Physical servo 9 
-#define SERVO11 10 // Physical servo 11
-#define SERVO12 11 // Physical servo 12
-#define SERVO13 12 // Physical servo 13
-#define SERVO14 13 // Physical servo 14
-#define SERVO15 14 // Physical servo 15
-#define SERVO16 15 // Physical servo 16
-
-// Servo pulse width limits (in microseconds)
-#define SERVOMIN 150 // Minimum pulse length
-#define SERVOMAX 600 // Maximum pulse length
-
-// Signal pin from main robot controller
-#define SIGNAL_PIN 2  // Interrupt pin for receiving signals
-
 // Signal detection variables
-volatile int signalCount = 0;       // Counts received signals (currently not used)
-unsigned long lastTrigger = 0;      // Last signal detection time (for debouncing)
+volatile int signalCount = 0;
+unsigned long lastTrigger = 0;
 
 // System state variables
-int currentState = 0;     // 0 = idle, 1 = part 1, 2 = part 2, 3 = part 3
-bool lastSignal = LOW;    // Previous signal state (for edge detection)
+int currentState = 0;
 
-void setup() {
+void setupServoController() {
   // Initialize I2C communication
   Wire.begin();
   
   // Initialize PWM controller
   pwm.begin();
   pwm.setPWMFreq(60); // Set PWM frequency to 60Hz
-  
-  // Start serial communication for debugging
-  Serial.begin(9600);
 
   // Configure signal pin and interrupt
   pinMode(SIGNAL_PIN, INPUT);
@@ -64,45 +35,6 @@ void setup() {
   setServoAngle(SERVO14, 75);
   setServoAngle(SERVO15, 75);
   setServoAngle(SERVO16, 75);
-}
-
-// Signal processing variables
-unsigned long lastSignalTime = 0;    // Last valid signal reception time
-bool signalReceived = false;         // Signal received flag
-const unsigned long resetDelay = 5000; // 5 second reset delay after sequence
-
-void loop() {
-  bool signal = digitalRead(SIGNAL_PIN);
-
-  // Ignore signals during reset period (5 seconds after last signal)
-  if (millis() - lastSignalTime < resetDelay) {
-    return; // Wait during reset period
-  }
-
-  // Detect rising edge (LOW -> HIGH transition)
-  if (signal == HIGH && lastSignal == LOW) {
-    lastSignalTime = millis(); // Update last signal time
-    currentState++; // Advance to next state
-    Serial.print("Signal received. Transitioning to state ");
-    Serial.println(currentState);
-
-    delay(1000); // Small debounce delay
-
-    // Execute appropriate sequence based on current state
-    if (currentState == 1) {
-      delay(1000); // Initial delay before starting
-    } else if (currentState == 2) {
-      runPart1(); // Execute part 1 sequence
-    } else if (currentState == 3) {
-      runPart2(); // Execute part 2 sequence
-    } else if (currentState == 4) {
-      runPart3(); // Execute part 3 sequence
-      while (true); // Stop program after final sequence
-    }
-  }
-
-  // Update previous signal state
-  lastSignal = signal;
 }
 
 /**
