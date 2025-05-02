@@ -61,16 +61,26 @@ For the dependencies, the following libraries are required:
 - Adafruit PWM Servo Driver Library
 - Wire Library (included with Arduino)
 
-Regarding the code explanation, the code is well-commented to explain the function of each part in detail, but here's an overall summary for better understanding.
+Regarding the code organization, the project has been structured into three modular files for better maintainability and clarity:
 
-At the beginning (as shown in the wiring schematic), I define the servo channels based on where I connected them. In the `setup()` function, I set initial positions to reset the servo arms so that the bars can be placed on top of them.
+servo_controller.h - Contains all constant definitions, pin declarations, and function prototypes
 
-In the `loop()` function, I address an issue where the Big Robot’s reset sends a "false" signal to my receiving pin (pin 2) due to the reset pulse. To solve this, I ignore any signals sent during the first few moments. After this delay, I call `runPart1`, `runPart2`, and then `runPart3`, one after the other, after receiving each signal.
+servo_controller.cpp - Implements all servo control logic and sequence functions
+
+main.ino - Handles the primary program flow and signal processing
+
+The code is well-commented to explain the function of each part in detail, but here's an overall summary for better understanding.
+
+At the beginning (as shown in the wiring schematic), I define the servo channels based on where I connected them. In the setupServoController() function (in servo_controller.cpp), I set initial positions to reset the servo arms so that the bars can be placed on top of them.
+
+In the loop() function (in main.ino), I address an issue where the Big Robot's reset sends a "false" signal to my receiving pin (pin 2) due to the reset pulse. To solve this, I ignore any signals sent during the first few moments. After this delay, I call runPart1(), runPart2(), and then runPart3(), one after the other, after receiving each signal.
 
 The logic is as follows:
 
-- `runPart1` releases the first part by lowering the servos that hold it.
-- `runPart2` raises the servos from the previous part to lower the fabric one level and then drop it, as in `runPart1`.
-- `runPart3` raises the servos from `runPart2` to lower the fabric one more level and let it drop again.
+runPart1() releases the first part by lowering the servos that hold it
+
+runPart2() raises the servos from the previous part to lower the fabric one level and then drop it, as in runPart1()
+
+runPart3() raises the servos from runPart2() to lower the fabric one more level and let it drop again
 
 This process allows the sequential deployment of the banner as described.
