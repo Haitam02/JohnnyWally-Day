@@ -2,7 +2,7 @@
 This repository contains all the code use fot the eurobot competition : The show must go on.
 
 A game lasts 100 seconds. The big robot can start directly. To score points, it can deploy a banner and build stands. Before the end of the game, he must reached his final area.
-The pamis and superstar can start from the 85th seconds. The pamis must reach one of the 3 areas infront of the stage before the end of the match. The superstar she must get on stage and move to the maximum. After the 100 secondes all the robot have to be stop.
+The pamis and superstar can start from the 85th seconds. The pamis must reach one of the 3 areas infront of the stage before the end of the match. The superstar must get on stage and move to the maximum. After the 100 secondes all the robot have to be stop.
 
 ## PAMI's code
 We used 2 pami with a similar code. Both use a rope, two ultrasound sensors to detect obstacles and two infrared to follow the lines. This is how they got to the playground.
