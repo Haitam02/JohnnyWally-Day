@@ -18,7 +18,8 @@ To use the code, you will need all the libraries listed below:
 - Adafruit_MotorShield.h           
 - SoftwareSerial.h 
 - Servo.h 
-- NewPing.h 
+- NewPing.h
+- ArduinoLog.h
 
 ### Pin used
 #### List of the pin for the PAMI 2 & 3
