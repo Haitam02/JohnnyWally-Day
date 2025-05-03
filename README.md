@@ -47,6 +47,7 @@ Each contains a `README.md` with detailed explanations of its purpose and code.
 - [`/Big_Robot's_Code-Banner_Deployment/`](./Big_Robot's_Code-Banner_Deployment/) – Readme for the banner deployment system.
 - [`/Pami2's_Code/`](./Pami2's_Code/) – Readme of the "groupie" robots.
 - [`/superstar/`](./superstar/) – Readme of the Superstar robot.
+- [`/3Dpieces/`](./3Dpieces/) - Readme for 3D Printed Parts.
 
 ---
 
